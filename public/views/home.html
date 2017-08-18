@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="page-header">
+        <h1>Foodtruck Tracker</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" ng-repeat="foodtruck in foodtrucks | orderBy: '-avgcost'">
+    <div class="col-md-6 col-md-offset-3 post-card">
+  
+      <div class="col-md-2">
+        {{foodtruck.avgcost}}
+      </div>
+  
+      <div class="col-md-10">
+        <span ng-show="foodtruck.name">by {{foodtruck.name}} - </span>
+        <span>
+            {{foodtruck.foodtype}}
+        </span>
+        <span class="glyphicon glyphicon-trash" ng-show="isPostOwner(post)" ng-click="deletePost(post)"></span>
+        <span>
+          - <a href="#/foodtruck/{{foodtruck._id}}">Details</a>
+        </span>
+      </div>
+  
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <form ng-submit="addFoodTruck()" ng-show="isLoggedIn()">
+        <h3>Add a new foodtruck</h3>
+  
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="name" placeholder="Title"/>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" ng-model="foodtype" placeholder="Foodtype"/>
+        </div>
+        <div class="form-group">
+            <input type="number" class="form-control" ng-model="avgcost" placeholder="0"/>
+        </div>
+        <button type="submit" class="btn btn-primary">Post</button>
+      </form>  
+      <div ng-hide="isLoggedIn()">
+        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
+      </div>      
+    </div>
+  </div>
