@@ -10,6 +10,7 @@ $scope.register = () => {
     auth.register($scope.account).error(error => {
         $scope.error = error;
     }).then(() => {
+        auth.logout();
         $state.go('home');
     });
 };
