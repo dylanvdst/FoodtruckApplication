@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "./node_modules/.bin/babel-node ./bin/www",
+    "start": "./node_modules/.bin/babel-node .bin/www --presets es2015,stage-0",
     "startBefore": "nodemon ./bin/www --exec babel-node --presets es2015,stage-0",
     "test": "mocha --reporter spec"
   },
@@ -35,6 +35,8 @@
   },
   "dependencies": {
     "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "body-parser": "^1.15.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
