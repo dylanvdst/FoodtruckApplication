@@ -1,2 +1,2 @@
-web: bin/web
+web: web: $(npm bin)/babel-node .
 worker: bin/worker
