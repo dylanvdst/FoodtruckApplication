@@ -42,7 +42,7 @@ auth.currentAccountId = () => {
 
 auth.register = account => {
     return $http.post('/v1/account/register', account).success(data => {
-        auth.saveToken(data.token);
+        //auth.saveToken(data.token);
     });
 };
 
