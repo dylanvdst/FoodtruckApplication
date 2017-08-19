@@ -1,6 +1,6 @@
 export default {
     "port": 3005,
     "bodyLimit": "100kb",
-    "dbUrl" : "mongodb://localhost:27017/foodtruck-api"
+    "dbUrl" : "mongodb://dylanvdst:brian@ds145293.mlab.com:45293/foodtruck-db"
   }
   
