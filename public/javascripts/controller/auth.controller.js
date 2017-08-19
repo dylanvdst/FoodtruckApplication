@@ -6,18 +6,18 @@ function AuthCtrl($scope, $state, auth) {
 
 $scope.account = {};
 
-$scope.register = function() {
-    auth.register($scope.account).error(function(error) {
+$scope.register = () => {
+    auth.register($scope.account).error(error => {
         $scope.error = error;
-    }).then(function() {
+    }).then(() => {
         $state.go('home');
     });
 };
 
-$scope.logIn = function() {
-    auth.logIn($scope.account).error(function(error) {
+$scope.logIn = () => {
+    auth.logIn($scope.account).error(error => {
         $scope.error = error;
-    }).then(function() {
+    }).then(() => {
         $state.go('home');
     });
 };

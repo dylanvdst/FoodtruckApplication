@@ -1,35 +1,54 @@
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <div class="page-header">
-        <h1>
-          {{foodtruck.name}}
-        </h1>
-      </div>
-    </div>
-  </div>
-  
-  <div class="row" ng-repeat="review in foodtruck.reviews">
-    <div class="col-md-6 col-md-offset-3 post-card">
-  
-      <h4>Show Reviews</h4>
-  
-    </div>
-  </div>
-  
-  <div class="row">
-    <div class="col-md-6 col-md-offset-3">
-      <form ng-submit="addReview()" ng-show="isLoggedIn()">
-        <h3>Add a new comment</h3>
-  
-        <div class="form-group">
-          <input type="text" class="form-control" ng-model="body" placeholder="Comment"/>
+<div ng-show="isLoggedIn()">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="page-header">
+                <h1>
+                    {{foodtruck.name}}
+                </h1>
+            </div>
         </div>
-  
-        <button type="submit" class="btn btn-primary">Post</button>
-      </form>
-      <div ng-hide="isLoggedIn()">
-        <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can add a post.</h3>
-      </div>
     </div>
-  </div>
-  
+
+    <div class="row">
+        <div id="map"></div>
+    </div>
+
+    <div class="row" ng-repeat="review in foodtruck.reviews">
+        <div class="col-md-6 col-md-offset-3 post-card">
+            <div class "col-md-10">
+                <h4>{{review.title}}</h4>
+                <span>{{review.text}}</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <form ng-submit="addReview()" ng-show="isLoggedIn()">
+                <h3>Add a new review</h3>
+                <div class="form-group">
+                    <input type="text" class="form-control" ng-model="title" placeholder="Title" />
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control" ng-model="text" placeholder="Your review" />
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Send Review</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div ng-hide="isLoggedIn()">
+    <h3>You need to <a href="/#/login">Log In</a> or <a href="/#/register">Register</a> before you can view more details.</h3>
+</div>
+
+<script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+
+<script src="../javascripts/other/googlemap.js">
+
+</script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBPiGbB6MtwRdI11DziKtTuCo2jmcPQvvo" async defer>
+
+</script>

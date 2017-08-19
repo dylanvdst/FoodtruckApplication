@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-md-6 col-md-offset-3">
       <div class="page-header">
-        <h1>Foodtruck Tracker</h1>
+        <h1>Foodtrucks</h1>
       </div>
     </div>
   </div>
@@ -18,9 +18,10 @@
         <span>
             {{foodtruck.foodtype}}
         </span>
-        <span class="glyphicon glyphicon-trash" ng-show="isPostOwner(post)" ng-click="deletePost(post)"></span>
+        <span class="glyphicon glyphicon-trash" ng-show="isFoodtruckOwner(foodtruck)" ng-click="deleteFoodtruck(foodtruck)"></span>
+        <a href="#/foodtruck/edit/{{foodtruck._id}}"> <span class="glyphicon glyphicon-cog" ng-show="isFoodtruckOwner(foodtruck)"></span> </a>
         <span>
-          - <a href="#/foodtruck/{{foodtruck._id}}">Details</a>
+          - <a href="#/foodtruck/{{foodtruck._id}}">Details</a> 
         </span>
       </div>
   
@@ -33,7 +34,7 @@
         <h3>Add a new foodtruck</h3>
   
         <div class="form-group">
-          <input type="text" class="form-control" ng-model="name" placeholder="Title"/>
+          <input type="text" class="form-control" ng-model="name" placeholder="Name"/>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" ng-model="foodtype" placeholder="Foodtype"/>

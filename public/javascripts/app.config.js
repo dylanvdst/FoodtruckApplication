@@ -27,7 +27,7 @@ function config($stateProvider, $urlRouterProvider){
         url: '/register',
         templateUrl: '../views/register.html',
         controller: 'AuthCtrl',
-        onEnter: ['$state', 'auth', function($state, auth) {
+        onEnter: ['$state', 'auth', ($state, auth) => {
             if(auth.isLoggedIn()) {
                 $state.go('home');
             }
@@ -38,7 +38,19 @@ function config($stateProvider, $urlRouterProvider){
         templateUrl: '../views/foodtruckDetail.html',
         controller: 'FoodtruckCtrl',
         resolve: {
-            foodtruck: ['$stateParams', 'foodtrucks', function($stateParams, foodtrucks) {
+            foodtruck: ['$stateParams', 'foodtrucks', ($stateParams, foodtrucks) => {
+                console.log(foodtrucks);
+                return foodtrucks.get($stateParams.id);
+            }]
+        }
+    })
+    .state('editFoodtruck', {
+        url: '/foodtruck/edit/{id}',
+        templateUrl: '../views/foodtruckUpdate.html',
+        controller: 'FoodtruckCtrl',
+        resolve: {
+            foodtruck: ['$stateParams', 'foodtrucks', ($stateParams, foodtrucks) => {
+                console.log(foodtrucks);
                 return foodtrucks.get($stateParams.id);
             }]
         }

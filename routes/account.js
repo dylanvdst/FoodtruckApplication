@@ -17,14 +17,14 @@ export default ({ config, db }) => {
 
   // '/v1/account/register'
   api.post('/register', (req, res) => {
-    Account.register(new Account({ username: req.body.email}), req.body.password, function(err, account) {
+    Account.register(new Account({ username: req.body.email}), req.body.password, (err, account) => {
       if (err) {
         return res.status(500).send('An error occurred: ' + err);
       }
 
       passport.authenticate(
         'local', {
-          session: false
+          session: true
       })(req, res, () => {
         res.status(200).send('Successfully created new account');
       });
@@ -34,7 +34,7 @@ export default ({ config, db }) => {
   // '/v1/account/login'
   api.post('/login', passport.authenticate(
     'local', {
-      session: false,
+      session: true,
       scope: []
     }), generateAccessToken, respond);
 

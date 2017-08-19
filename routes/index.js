@@ -15,7 +15,7 @@ initializeDb(db => {
   router.use(middleware({ config, db }));
 
   // api routes v1 (/v1)
-  router.use('/', home({config, db}));
+  //router.use('/', home({config, db}));
   router.use('/foodtruck', foodtruck({ config, db }));
   router.use('/account', account({ config, db }));
   

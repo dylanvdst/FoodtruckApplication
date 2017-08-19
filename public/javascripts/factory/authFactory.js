@@ -9,50 +9,50 @@ auth.saveToken = token => {
     $window.localStorage['foodtruck-token'] = token;
 };
 
-auth.getToken = function() {
+auth.getToken = () => {
     return $window.localStorage['foodtruck-token'];
 };
 
-auth.isLoggedIn = function() {
-    var token = auth.getToken();
+auth.isLoggedIn = () => {
+    let token = auth.getToken();
 
     if(token) {
-        var playload = JSON.parse($window.atob(token.split('.')[1]));
+        let playload = JSON.parse($window.atob(token.split('.')[1]));
         return playload.exp > Date.now() / 1000;
     } else {
         return false;
     }
 };
 
-auth.currentAccount = function() {
+auth.currentAccount = () => {
     if(auth.isLoggedIn()) {
-        var token = auth.getToken();
-        var playload = JSON.parse($window.atob(token.split('.')[1]));
+        let token = auth.getToken();
+        let playload = JSON.parse($window.atob(token.split('.')[1]));
         return playload.email;
     }
 };
 
-auth.currentAccountId = function() {
+auth.currentAccountId = () => {
     if(auth.isLoggedIn()) {
-        var token = auth.getToken();
-        var playload = JSON.parse($window.atob(token.split('.')[1]));
-        return playload._id;
+        let token = auth.getToken();
+        let playload = JSON.parse($window.atob(token.split('.')[1]));
+        return playload.id;
     }
 };
 
 auth.register = account => {
-    return $http.post('/v1/account/register', account).success(function(data) {
+    return $http.post('/v1/account/register', account).success(data => {
         auth.saveToken(data.token);
     });
 };
 
 auth.logIn = account => {
-    return $http.post('/v1/account/login', account).success(function(data) {
+    return $http.post('/v1/account/login', account).success(data => {
         auth.saveToken(data.token);
     });
 };
 
-auth.logOut = function() {
+auth.logOut = () => {
     $window.localStorage.removeItem('foodtruck-token');
 };
 

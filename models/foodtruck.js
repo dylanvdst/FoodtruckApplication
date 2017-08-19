@@ -16,7 +16,8 @@ let FoodTruckSchema = new Schema({
     type: { type: String, default: 'Point' },
     coordinates: [Number]
   },
-  reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}]
+  reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
+  accountId: String
 });
 
 module.exports = mongoose.model('FoodTruck', FoodTruckSchema);

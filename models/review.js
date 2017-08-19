@@ -5,7 +5,8 @@ let Schema = mongoose.Schema;
 let ReviewSchema = new Schema({
   title: String,
   text: String,
-  foodtruck: {type: Schema.Types.ObjectId, ref: 'FoodTruck'}
+  foodtruck: {type: Schema.Types.ObjectId, ref: 'FoodTruck'},
+  accountid: String
 });
 
 module.exports = mongoose.model('Review', ReviewSchema);
