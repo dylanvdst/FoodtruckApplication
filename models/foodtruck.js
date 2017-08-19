@@ -12,11 +12,9 @@ let FoodTruckSchema = new Schema({
     required: true
   },
   avgcost: Number,
-  geometry: {
-    type: { type: String, default: 'Point' },
-    coordinates: [Number]
-  },
+  favourites: {type: Number, default: 0},
   reviews: [{type: Schema.Types.ObjectId, ref: 'Review'}],
+  favouritedBy: [String],
   accountId: String
 });
 

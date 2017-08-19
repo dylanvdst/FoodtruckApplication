@@ -1,1 +1,1 @@
-angular.module('foodtruck-app', ['ui.router']);
+angular.module('foodtruck-app', ['ui.router', 'ngTable']);
