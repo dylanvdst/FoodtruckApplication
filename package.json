@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./dist/bin/www",
-    "build":"babel src -s -D -d dist --presets es2015,stage-0",
+    "start": "./node_modules/.bin/babel-node  /bin/www",
+    "build":"babel *.js -s -D -d dist --presets es2015,stage-0",
     "startBefore": "nodemon ./bin/www --exec babel-node --presets es2015,stage-0",
     "test": "mocha --reporter spec"
   },
