@@ -1,4 +1,4 @@
-angular.module('foodtruck-app').controller('MainCtrl', MainCtrl);
+angular.module('foodtruck-app').controller('MainCtrl', MainCtrl).directive('myDirective', MyDirective);
 
 function MainCtrl($scope, foodtrucks, auth)
 {
@@ -31,5 +31,12 @@ function MainCtrl($scope, foodtrucks, auth)
     
     $scope.deleteFoodtruck = foodtruck => {
 		foodtrucks.delete(foodtruck);
+    };
+}
+
+function MyDirective()
+{
+    return {
+        templateUrl: 'myDirective.html'
     };
 }

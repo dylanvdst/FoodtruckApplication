@@ -52,7 +52,7 @@ export default({ config, db }) => {
     newFoodTruck.accountId = req.body.accountId;
     //newFoodTruck.geometry.coordinates = req.body.geometry.coordinates;
 
-    newFoodTruck.save((err) => {
+    newFoodTruck.save(err => {
       if (err) {
         res.send(err);
       }
@@ -86,11 +86,11 @@ export default({ config, db }) => {
       req.foodtruck.foodtype = req.body.foodtype;
       req.foodtruck.avgcost = req.body.avgcost;
       //req.foodtruck.geometry.coordinates = req.body.geometry.coordinates;
-      req.foodtruck.save(function(err) {
+      req.foodtruck.save((err, foodtruck) => {
         if (err) {
           res.send(err);
         }
-        res.json({ message: 'Food Truck info updated' });
+        res.json(foodtruck);
       });  
     });
     

@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www --exec babel-node --presets es2015,stage-0"
+    "start": "nodemon ./bin/www --exec babel-node --presets es2015,stage-0",
+    "test": "mocha --reporter spec"
   },
   "eslintConfig": {
     "parserOptions": {
@@ -25,8 +26,11 @@
     "babel-eslint": "^7.1.0",
     "babel-preset-es2015": "^6.18.0",
     "babel-preset-stage-0": "^6.16.0",
+    "chai": "^4.1.1",
     "eslint": "^3.9.1",
-    "nodemon": "^1.11.0"
+    "mocha": "^3.5.0",
+    "nodemon": "^1.11.0",
+    "request": "^2.81.0"
   },
   "dependencies": {
     "body-parser": "^1.15.2",

@@ -1,0 +1,19 @@
+<div class="col-md-6 col-md-offset-3 post-card">
+
+    <div class="col-md-2">
+        {{foodtruck.avgcost}}
+    </div>
+
+    <div class="col-md-10">
+        <span ng-show="foodtruck.name">{{foodtruck.name}} - </span>
+        <span>
+                    {{foodtruck.foodtype}} -
+                </span>
+        <span class="glyphicon glyphicon-trash" ng-show="isFoodtruckOwner(foodtruck)" ng-click="deleteFoodtruck(foodtruck)"></span>
+        <a href="#/foodtruck/edit/{{foodtruck._id}}"> <span class="glyphicon glyphicon-cog" ng-show="isFoodtruckOwner(foodtruck)"></span> </a>
+        <span>
+                  - <a href="#/foodtruck/{{foodtruck._id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
+        </span>
+    </div>
+
+</div>

@@ -29,9 +29,5 @@ function FoodtruckCtrl($scope, foodtrucks, foodtruck, auth)
         }).success(updatedFoodtruck => {
             $scope.foodtruck = updatedFoodtruck;
         });
-
-        $scope.name = '';
-        $scope.avgcost = '';
-        $scope.foodtype = '';
     }
 };

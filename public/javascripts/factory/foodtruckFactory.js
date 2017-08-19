@@ -34,12 +34,12 @@ function foodtruckFactory($http, auth) {
     };
 
     o.edit = (id, foodtruck) => {
-        console.log(auth.getToken());
         return $http.put('/v1/foodtruck/'+id, foodtruck, {
             headers: {Authorization: 'Bearer ' + auth.getToken()}
         }).success(data => {
             let index = o.foodtrucks.findIndex(x => x._id == foodtruck.id);
             o.foodtrucks[index] = data;
+            return data;
         });
     };
 
