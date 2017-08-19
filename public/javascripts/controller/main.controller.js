@@ -1,10 +1,13 @@
 angular.module('foodtruck-app').controller('MainCtrl', MainCtrl).directive('mydirective', MyDirective);
 
-function MainCtrl($scope, foodtrucks, NgTableParams, auth)
+function MainCtrl($scope, $filter, foodtrucks, NgTableParams, auth)
 {
     $scope.foodtrucks = foodtrucks.foodtrucks;
     $scope.isLoggedIn = auth.isLoggedIn;
-    $scope.tableParams = new NgTableParams({}, {dataset: $scope.foodtrucks});
+    $scope.tableParams = new NgTableParams({
+        page: 1,
+        count: 5
+        });
 
     $scope.searchByType = () => {
         if(!$scope.searchType || $scope.searchType === '') {foodtrucks.getAll();

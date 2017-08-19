@@ -12,21 +12,28 @@
     <div class="row">
         <div class="col-md-6 col-md-offset-3">
             <form ng-submit="editFoodtruck()" ng-show="isLoggedIn()">
-
                 <div class="form-group">
-                    <label for="name">Name:</label>
-                    <input type="text" id="name" class="form-control" ng-model="name" placeholder="Name" ng-init="name = foodtruck.name" />
+                    <div class="input-group">
+                        <span class="input-group-addon">Name:</span>
+                        <input type="text" id="name" class="form-control" ng-model="name" placeholder="Name" ng-init="name = foodtruck.name" />
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="foodtype">Foodtype:</label>
-                    <input type="text" id="foodtype" class="form-control" ng-model="foodtype" placeholder="Foodtype" ng-init="foodtype = foodtruck.foodtype" />
+                    <div class="input-group">
+                        <span class="input-group-addon">Foodtype:</span>
+                        <input type="text" id="foodtype" class="form-control" ng-model="foodtype" placeholder="Foodtype" ng-init="foodtype = foodtruck.foodtype"
+                        />
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="avgcost">Average Cost:</label>
-                    <input type="number" id="avgcost" class="form-control" ng-model="avgcost" placeholder="0" ng-init="avgcost = foodtruck.avgcost" />
+                    <div class="input-group">
+                        <span class="input-group-addon">Average Cost:</span>
+                        <input type="number" id="avgcost" class="form-control" ng-model="avgcost" placeholder="0" ng-init="avgcost = foodtruck.avgcost"
+                        />
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Edit</button>
-            </form>           
+            </form>
         </div>
     </div>
 </div>
