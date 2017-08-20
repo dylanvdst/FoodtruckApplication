@@ -24,6 +24,7 @@
                 <span class="glyphicon glyphicon-star-empty" ng-click="favourite(foodtruck)" ng-hide="favourited(foodtruck)"></span>
             </td>
             <td title="'Reviews'">
+                {{foodtruck.reviews.length}}
                 <span>
                 <a href="#/foodtruck/{{foodtruck._id}}"><span class="glyphicon glyphicon-info-sign"></span></a>
                 </span>
