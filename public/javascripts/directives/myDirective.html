@@ -9,16 +9,16 @@
 <div class="col-md-5 col-md-offset-3 post-card">
     <table ng-table="tableParams" class="table" show-filter="false">
         <tr ng-repeat="foodtruck in foodtrucks">
-            <td title="'Name'" sortable="'foodtruck.name'">
+            <td title="'Name'">
                 {{foodtruck.name}}
             </td>
-            <td title="'Average Cost'" sortable="'foodtruck.avgcost'">
+            <td title="'Average Cost'">
                 {{foodtruck.avgcost}}
             </td>
-            <td title="'Foodtype'" sortable="'foodtruck.foodtype'">
+            <td title="'Foodtype'">
                 {{foodtruck.foodtype}}
             </td>
-            <td title="'Favourites'" sortable="'foodtruck.favourites'">
+            <td title="'Favourites'">
                 {{foodtruck.favourites}}
                 <span class="glyphicon glyphicon-star" ng-click="unfavourite(foodtruck)" ng-show="favourited(foodtruck)"></span>
                 <span class="glyphicon glyphicon-star-empty" ng-click="favourite(foodtruck)" ng-hide="favourited(foodtruck)"></span>
